@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Pageone from "./Pageone";
+import Pagetwo from "./Pagetwo";
+import Pagethree from "./Pagethree";
+import { BrowserRouter as Router,NavLink,Route} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+interface Istate{}
+interface Ipropse{}
+class App extends Component<Ipropse,Istate>{
+  constructor(propse:Ipropse){
+    super(propse);
+  }
+  render(){
+    return(
+      <React.Fragment>
+        <Router>
+<NavLink to ="/page_one"  activeStyle={{color:"red"}} exact={true} strict><b>Page_one</b>
+
+</NavLink>
+<NavLink to ="/Page_two" activeStyle={{color:"green"}} exact={true} strict><b>Page_two</b>
+
+</NavLink>
+<NavLink to ="/Page_three" activeStyle={{color:"yellow"}} exact={true} strict><b>Page_three</b>
+
+</NavLink>
+<Route path="/Page_one" component={Pageone} exact={true} strict></Route>
+<Route path="/page_two" component={Pagetwo} exact={true} strict></Route>
+<Route path="/Page_three" component={Pagethree} exact={true} strict></Route>
+        </Router>
+      </React.Fragment>
+    )
+  }
 }
-
-export default App;
+  export default App;
