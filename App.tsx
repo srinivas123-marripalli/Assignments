@@ -1,37 +1,21 @@
-import React, { Component } from "react";
-import Pageone from "./Pageone";
-import Pagetwo from "./Pagetwo";
-import Pagethree from "./Pagethree";
-import { BrowserRouter as Router,NavLink,Route} from "react-router-dom";
+import React, { useState } from "react";
+function App(){
+  const[var_one,setVarone] = useState("hello_1");
+  const[var_two,setVartwo] = useState("hello_2");
+  const[var_three,setVarthree] = useState("hello_3")
 
-
-
-
-interface Istate{}
-interface Ipropse{}
-class App extends Component<Ipropse,Istate>{
-  constructor(propse:Ipropse){
-    super(propse);
-  }
-  render(){
-    return(
-      <React.Fragment>
-        <Router>
-<NavLink to ="/page_one"  activeStyle={{color:"red"}} exact={true} strict><b>Page_one</b>
-
-</NavLink>
-<NavLink to ="/Page_two" activeStyle={{color:"green"}} exact={true} strict><b>Page_two</b>
-
-</NavLink>
-<NavLink to ="/Page_three" activeStyle={{color:"yellow"}} exact={true} strict><b>Page_three</b>
-
-</NavLink>
-<Route path="/Page_one" component={Pageone} exact={true} strict></Route>
-<Route path="/page_two" component={Pagetwo} exact={true} strict></Route>
-<Route path="/Page_three" component={Pagethree} exact={true} strict></Route>
-        </Router>
-      </React.Fragment>
-    )
-  }
+ const changeState = () =>{
+ setVarone("welcome_1");
+ setVartwo("welcome_2");
+ setVarthree("welcome_3");
+};
+return(
+  <React.Fragment>
+    <h1>{var_one}</h1>
+    <h1>{var_two}</h1>
+    <h1>{var_three}</h1>
+    <button onClick={changeState}>changeState</button>
+  </React.Fragment>
+)
 }
-  export default App;
+export default App;
